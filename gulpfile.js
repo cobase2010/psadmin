@@ -21,6 +21,7 @@ var config = {
     ],
     dist: './dist',
     mainJs: './src/main.js',
+    testJs: './src/test.js',
   }
 }
 //Start a local developmnet server
@@ -66,11 +67,15 @@ gulp.task('lint', function() {
     .pipe(lint.format())
 })
 
+gulp.task('test',function() {
+	require('./src/test.js');
+})
+
 gulp.task('watch', function() {
   gulp.watch(config.paths.html, ['html'])
   gulp.watch(config.paths.js, ['js', 'lint'])
 })
 
-gulp.task('default', ['html', 'js', 'css', 'lint', 'open', 'watch'])
+gulp.task('default', ['html', 'js', 'css', 'lint', 'open', 'test', 'watch'])
 
 
