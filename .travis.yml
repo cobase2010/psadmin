@@ -1,6 +1,6 @@
 before_script:
   - npm install; npm install -g gulp;
-script: gulp verify
+script: gulp test
 language: node_js
 node_js:
   - "6.4"
